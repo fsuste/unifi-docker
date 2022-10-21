@@ -19,14 +19,7 @@ services:
       - unifi
     restart: always
     volumes:
-      - dir:/unifi
-      - data:/unifi/data
-      - log:/unifi/log
-      - cert:/unifi/cert
-      - init:/unifi/init.d
-      - run:/var/run/unifi
-      # Mount local folder for backups and autobackups
-      - ./backup:/unifi/data/backup
+      - ./unifi:/unifi
     user: unifi
     sysctls:
       net.ipv4.ip_unprivileged_port_start: 0
@@ -55,12 +48,7 @@ services:
 volumes:
   db:
   dbcfg:
-  data:
   log:
-  cert:
-  init:
-  dir:
-  run:
 
 networks:
   unifi:
